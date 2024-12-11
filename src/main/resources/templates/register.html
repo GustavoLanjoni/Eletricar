@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Serviços e Carros</title>
+  <link rel="stylesheet" href="/src/main/resources/static/css/registerCss.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Registrar Serviços e Carros</h1>
+      </div>
+      <!-- Menu -->
+      <nav>
+        <ul id="menu" class="menu-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="estoque.html">Gerenciar Estoque</a></li>
+          <li><a href="servico.html">Serviços Feitos</a></li>
+          <li><a href="login.html">Sair</a></li>
+        </ul>
+        <!-- Ícone do menu hambúrguer -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Registrar Serviço e Carro</h2>
+      <form id="cadastro-form">
+        <div class="form-group">
+          <label for="nome-servico">Nome do Serviço</label>
+          <input type="text" id="nome-servico" placeholder="Nome do Serviço" required>
+        </div>
+        <div class="form-group">
+          <label for="descricao-servico">Descrição do Serviço</label>
+          <textarea id="descricao-servico" placeholder="Descrição do Serviço"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="valor-servico">Valor do Serviço</label>
+          <input type="number" id="valor-servico" placeholder="Valor do Serviço (R$)" required>
+        </div>
+        <div class="form-group">
+          <label for="placa-carro">Placa do Carro</label>
+          <input type="text" id="placa-carro" placeholder="Placa do Carro" required>
+        </div>
+        <div class="form-group">
+          <label for="modelo-carro">Modelo do Carro</label>
+          <input type="text" id="modelo-carro" placeholder="Modelo do Carro" required>
+        </div>
+        <div class="form-group">
+          <label for="ano-carro">Ano do Carro</label>
+          <input type="number" id="ano-carro" placeholder="Ano do Carro" required>
+        </div>
+        <button type="submit">Cadastrar Serviço e Carro</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Gustavo Lanjoni</p>
+  </footer>
+
+  <script>
+    document.getElementById("cadastro-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      // Obter os dados do formulário
+      const nomeServico = document.getElementById("nome-servico").value;
+      const descricaoServico = document.getElementById("descricao-servico").value;
+      const valorServico = parseFloat(document.getElementById("valor-servico").value);
+      const placaCarro = document.getElementById("placa-carro").value;
+      const modeloCarro = document.getElementById("modelo-carro").value;
+      const anoCarro = document.getElementById("ano-carro").value;
+  
+      // Objeto do serviço
+      const novoServico = {
+        nome: nomeServico,
+        descricao: descricaoServico,
+        valor: valorServico,
+        placa: placaCarro,
+        modelo: modeloCarro,
+        ano: anoCarro,
+        data: new Date().toISOString().split("T")[0] // Data atual
+      };
+  
+      // Obter serviços existentes no LocalStorage
+      const servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+  
+      // Adicionar novo serviço
+      servicos.push(novoServico);
+  
+      // Salvar novamente no LocalStorage
+      localStorage.setItem("servicos", JSON.stringify(servicos));
+  
+      alert("Serviço e Carro cadastrados com sucesso!");
+      document.getElementById("cadastro-form").reset();
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços Realizados</title>
+  <link rel="stylesheet" href="/src/main/resources/static/css/servico.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Serviços Realizados</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="services-section">
+      <h2>Serviços Realizados</h2>
+      <button class="btn" onclick="carregarServicos()">Carregar Serviços</button>
+      <div id="total-servicos" class="totals-container">
+        <p><strong>Total de Serviços Realizados:</strong> <span id="total"></span></p>
+        <p><strong>Total por Dia:</strong> <span id="total-dia"></span></p>
+        <p><strong>Total por Mês:</strong> <span id="total-mes"></span></p>
+        <p><strong>Total por Ano:</strong> <span id="total-ano"></span></p>
+      </div>
+      <ul id="lista-servicos-realizados" class="services-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Gustavo Lanjoni</p>
+  </footer>
+
+  <script>
+    function carregarServicos() {
+      // Obter serviços do LocalStorage
+      const servicos = JSON.parse(localStorage.getItem("servicos")) || [];
+  
+      const listaServicos = document.getElementById("lista-servicos-realizados");
+      const total = servicos.length;
+  
+      // Calcular totais
+      const hoje = new Date().toISOString().split("T")[0];
+      const totalDia = servicos.filter(s => s.data === hoje).length;
+      const totalMes = servicos.filter(s => s.data.startsWith(hoje.slice(0, 7))).length;
+      const totalAno = servicos.filter(s => s.data.startsWith(hoje.slice(0, 4))).length;
+  
+      // Atualizar os dados na página
+      document.getElementById("total").innerText = total;
+      document.getElementById("total-dia").innerText = totalDia;
+      document.getElementById("total-mes").innerText = totalMes;
+      document.getElementById("total-ano").innerText = totalAno;
+  
+      // Listar os serviços
+      listaServicos.innerHTML = servicos
+        .map(servico => `
+          <li>
+            <strong>${servico.nome}</strong> - R$ ${servico.valor.toFixed(2)}<br>
+            <em>${servico.descricao}</em><br>
+            Placa: ${servico.placa}, Modelo: ${servico.modelo}, Ano: ${servico.ano}
+          </li>
+        `)
+        .join('');
+    }
+  </script>
+  
+</body>
+</html>

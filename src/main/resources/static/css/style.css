@@ -1,0 +1,181 @@
+/* Reseta algumas configurações padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Estilo do corpo da página */
+  body {
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Estilo do cabeçalho */
+  header {
+    background-color: #2d3e50;
+    color: #fff;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Container do cabeçalho */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo */
+  .logo-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  /* Estilo de navegação (menu) */
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Lista de itens do menu */
+  .menu-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+  }
+  
+  /* Itens de menu */
+  .menu-list li {
+    display: inline-block;
+  }
+  
+  /* Links do menu */
+  .menu-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Efeito de hover no menu */
+  .menu-list a:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+  }
+  
+  /* Efeito de clique no menu */
+  .menu-list a:active {
+    transform: scale(0.98);
+  }
+  
+  /* Menu hambúrguer para dispositivos móveis */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  /* Exibição do menu no modo mobile */
+  @media (max-width: 768px) {
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #2d3e50;
+      width: 250px;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .menu-list.active {
+      display: block;
+    }
+  }
+  
+  /* Estilo do conteúdo principal */
+  main {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  /* Seção de boas-vindas */
+  .welcome-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 30px;
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+  
+  .welcome-section h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-section p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  /* Estilo do rodapé */
+  footer {
+    background-color: #2d3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+  }
+  
+  /* Ajustes para o footer */
+  footer p {
+    margin: 0;
+  }
+  
+  /* Adiciona sombra no rodapé */
+  footer {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título do rodapé */
+  footer h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  

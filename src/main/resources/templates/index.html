@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema</title>
+  <link rel="stylesheet" href="/src/main/resources/static/css/style.css">
+  <script src="/src/main/resources/static/js/script.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <h1>Eletricar</h1>
+      </div>
+      <nav>
+        <ul id="menu" class="menu-list">
+          <li><a href="register.html">Registar Serviço</a></li>
+          <li><a href="estoque.html">Gerenciar Estoque</a></li>
+          <li><a href="servico.html">Serviços Feitos</a></li>
+          <li><a href="login.html">Sair</a></li>
+        </ul>
+        <!-- Hamburger Menu (visível em telas menores) -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <section class="welcome-section">
+      <h2>Bem-vindo ao Sistema da Eletricar!</h2>
+      <p>Olá, Admin! Gerencie os serviços, carros e estoque com facilidade.</p>
+      <p>Escolha uma das opções do menu para começar.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Gustavo Lanjoni - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    // Função para alternar o menu no dispositivo móvel
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
